@@ -1,4 +1,4 @@
-package com.bitlab.simpletest;
+package com.bitlab.simpletest.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
