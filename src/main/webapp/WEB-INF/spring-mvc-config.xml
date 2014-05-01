@@ -15,12 +15,11 @@
     <!--Allow to use Default servlet for serving static resources -->
     <mvc:default-servlet-handler/>
 
+    <mvc:view-controller path="/auth/login" view-name="/login"/>
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    
-
-
 
 </beans>
