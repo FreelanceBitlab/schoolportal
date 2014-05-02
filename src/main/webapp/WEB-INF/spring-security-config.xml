@@ -14,11 +14,13 @@
     <http use-expressions="true">
         <form-login login-page="/auth/login"/>
 
+        <intercept-url pattern="/" access="permitAll()"/>
         <intercept-url pattern="/index1.html" access="permitAll()"/>
         <intercept-url pattern="/index2.html" access="permitAll()"/>
         <intercept-url pattern="/snoop.jsp" access="hasRole('ROLE_ADMIN')"/>
 
         <intercept-url pattern="/auth/login" access="isAnonymous()"/>
+        <intercept-url pattern="/auth/register" access="isAnonymous()"/>
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
     </http>
 
