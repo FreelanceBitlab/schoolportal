@@ -1,7 +1,8 @@
 package com.bitlab.simpletest.web.controller;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -9,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/hello")
 public class HelloController {
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", "Hello world!1!");
-		return "hello";
-	}
+    @Secured({"ROLE_PUPIL", "ROLE_TEACHER", "ROLE_HEAD"})
+    @RequestMapping(method = RequestMethod.GET)
+    public String printWelcome(Model model) {
+        model.addAttribute("message", "Hello world!1!");
+        return "hello";
+    }
 }

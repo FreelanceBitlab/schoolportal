@@ -12,7 +12,7 @@
     <http name="resources" security="none" request-matcher="regex" pattern="[/](css|images|js)[/].+"/>
 
     <http use-expressions="true">
-        <form-login login-page="/auth/login"/>
+        <form-login login-page="/auth/login" default-target-url="/auth/loginSuccess"/>
 
         <intercept-url pattern="/" access="permitAll()"/>
         <intercept-url pattern="/index1.html" access="permitAll()"/>
@@ -20,15 +20,16 @@
         <intercept-url pattern="/snoop.jsp" access="hasRole('ROLE_ADMIN')"/>
 
         <intercept-url pattern="/auth/login" access="isAnonymous()"/>
-        <intercept-url pattern="/auth/register" access="isAnonymous()"/>
-        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/**" access="isAuthenticated()"/>
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="nadya" password="nadyapassword" authorities="ROLE_USER, ROLE_ADMIN"/>
-                <user name="bob" password="bobpassword" authorities="ROLE_USER"/>
+                <user name="bob" password="bobpassword" authorities="ROLE_PUPIL"/>
+                <user name="maria" password="mariapassword" authorities="ROLE_TEACHER"/>
+                <user name="cate" password="catepassword" authorities="ROLE_HEAD, ROLE_TEACHER"/>
+                <user name="nadya" password="nadyapassword" authorities="ROLE_ADMIN"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>

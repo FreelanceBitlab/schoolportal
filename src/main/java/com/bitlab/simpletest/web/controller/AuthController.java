@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/auth")
 public class AuthController {
 
+    @Deprecated
     @RequestMapping(value = "registerUser", method = RequestMethod.POST)
     public String register(@RequestParam String username, @RequestParam String email, @RequestParam String password) {
         return "/auth/pendingRegistration";
