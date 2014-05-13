@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         ">
 
-    <!--<http name="resources" security="none" pattern="/resources/**"/>-->
+    <http name="resources" security="none" request-matcher="regex" pattern="[/](css|images|js)[/].+"/>
 
     <http use-expressions="true">
         <form-login login-page="/auth/login"/>
@@ -28,7 +28,7 @@
         <authentication-provider>
             <user-service>
                 <user name="nadya" password="nadyapassword" authorities="ROLE_USER, ROLE_ADMIN"/>
-                <user name="bob" password="bobspassword" authorities="ROLE_USER"/>
+                <user name="bob" password="bobpassword" authorities="ROLE_USER"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>

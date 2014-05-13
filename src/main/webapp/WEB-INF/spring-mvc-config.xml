@@ -10,13 +10,10 @@
 
     <context:component-scan base-package="com.bitlab.simpletest.web.controller"/>
 
-    <!--Set annotation-based handler mapping order higher than Default servlet-->
     <mvc:annotation-driven/>
-    <!--Allow to use Default servlet for serving static resources -->
     <mvc:default-servlet-handler/>
 
     <mvc:view-controller path="/" view-name="welcome"/>
-
     <mvc:view-controller path="/auth/login" view-name="auth/login"/>
     <mvc:view-controller path="/auth/register" view-name="auth/register"/>
 
